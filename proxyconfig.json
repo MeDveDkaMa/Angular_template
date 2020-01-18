@@ -1,0 +1,22 @@
+{
+  "/rest": {
+    "target": "http://localhost:8080/",
+    "secure": true,
+    "pathRewrite": {
+      "^/rest": ""
+    },
+    "changeOrigin": true,
+    "timeout": 30000
+  },
+
+  "/quarkus": {
+    "target": "http://localhost:8080/",
+    "secure": true,
+    "pathRewrite": {
+      "^/quarkus": ""
+    },
+    "changeOrigin": true,
+    "timeout": 30000
+  }
+
+}
