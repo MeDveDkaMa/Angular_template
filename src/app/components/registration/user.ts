@@ -1,8 +1,11 @@
+import {role} from './role';
+
 export class User{
     constructor(
-        firstname:string,
-        lastname:string,
+        username:string,
+        adress:string,
         email:string,
-        age:number
+        password:string,
+        // role:role
     ){}
 }
