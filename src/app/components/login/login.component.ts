@@ -33,12 +33,16 @@ export class LoginComponent implements OnInit {
                   this.router.navigate(['/ListUsers']);
               }},
                   error =>{
-              this.router.navigate(['/Registration']);
+             // this.router.navigate(['/Registration']);
               alert("Invalid username or password\n" + error.status + " " + error.status.text);
         });
 
   }
 
+    ngOnInit() {
+    }
+
+}
 
 
     // this.service.doLogin(this.userlogin)
@@ -60,7 +64,4 @@ export class LoginComponent implements OnInit {
     //     });
 
 
-  ngOnInit() {
-  }
 
-}

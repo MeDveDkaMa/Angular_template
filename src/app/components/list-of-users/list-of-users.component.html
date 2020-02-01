@@ -7,22 +7,24 @@
 
 <!--    <person-viewer [detail]="user" (add)="onAddPerson($event)"></person-viewer>-->
 
-    <h3>Person List</h3>
-    <br>
-    <div class="container-fluid">
-        <div class="row">
-        <div class="col-1">Id</div>
-        <div class="col-2">FirstName</div>
-        <div class="col-2">LastName</div>
-        <div class="col-2">Age</div>
-        <div class="col-2">E-mail</div>
-    </div>
-    <div class="row" *ngFor="let user of users;">
-        <div class="col-1">{{ user.id }}</div>
-        <div class="col-2">{{ user.firstname }}</div>
-        <div class="col-2">{{ user.lastname }}</div>
-        <div class="col-2">{{ user.age }}</div>
-        <div class="col-2">{{ user.email }}</div>
-    </div>
-    </div >
-    </div >
+<!--    <h3>Person List</h3>-->
+<!--    <br>-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--        <div class="col-1">Id</div>-->
+<!--        <div class="col-2">FirstName</div>-->
+<!--        <div class="col-2">LastName</div>-->
+<!--        <div class="col-2">Age</div>-->
+<!--        <div class="col-2">E-mail</div>-->
+<!--    </div>-->
+<!--    <div class="row" *ngFor="let user of users;">-->
+<!--        <div class="col-1">{{ user.id }}</div>-->
+<!--        <div class="col-2">{{ user.firstname }}</div>-->
+<!--        <div class="col-2">{{ user.lastname }}</div>-->
+<!--        <div class="col-2">{{ user.age }}</div>-->
+<!--        <div class="col-2">{{ user.email }}</div>-->
+<!--    </div>-->
+<!--    </div >-->
+<!--    </div >-->
+
+    <app-data-table></app-data-table>
