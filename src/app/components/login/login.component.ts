@@ -11,12 +11,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private service:LoginService) { }
 
-  userlogin: Userlogin = new Userlogin("","",);
+  userlogin: Userlogin = new Userlogin("","");
 
   message:any;
 
   password:string;
   email:string;
+
 
   public Login(){
 
@@ -39,10 +40,11 @@ export class LoginComponent implements OnInit {
     //     });
 
     this.service.doLogin(this.email,this.password)
-        .subscribe(data => {
-          this.userlogin = data;
-          localStorage.getItem(data.toString());
-          console.log(localStorage);
+        .subscribe((res: any) => {
+            if (localStorage.getItem("token")) {
+                alert(localStorage.getItem("token"));
+            }
+          this.userlogin = res;
           alert("Successfully login");
         });
 

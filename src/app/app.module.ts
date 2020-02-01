@@ -14,6 +14,9 @@ import {RegistrationService} from './services/Registration/registration.service'
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LoginService} from './services/Login/login.service';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import {SessionService} from './services/session.service';
+import {RestService} from './services/rest.service';
 
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
@@ -37,11 +40,15 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxWebstorageModule.forRoot(),
   ],
-  providers: [ListOfUsersService,
-              RegistrationService,
-    LoginService],
+  providers: [
+      ListOfUsersService,
+      RegistrationService,
+      LoginService,
+      SessionService,
+      RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
