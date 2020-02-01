@@ -15,10 +15,36 @@ export class LoginComponent implements OnInit {
 
   message:any;
 
+  password:string;
+  email:string;
+
   public Login(){
 
-    let resp=this.service.doLogin(this.userlogin);
-    resp.subscribe(data => this.userlogin = data);
+    // this.service.doLogin(this.userlogin)
+    //     .subscribe((data:any) => {
+    //       if (data.password){
+    //         localStorage.getItem(data.password);
+    //         console.log(localStorage);
+    //         alert("Successfully login");
+    //       }
+    //     });
+
+
+    // this.service.doLogin(this.userlogin)
+    //     .subscribe(data => {
+    //       this.userlogin = data;
+    //       localStorage.getItem(data.toString());
+    //       console.log(localStorage);
+    //       alert("Successfully login");
+    //     });
+
+    this.service.doLogin(this.email,this.password)
+        .subscribe(data => {
+          this.userlogin = data;
+          localStorage.getItem(data.toString());
+          console.log(localStorage);
+          alert("Successfully login");
+        });
 
   }
 
