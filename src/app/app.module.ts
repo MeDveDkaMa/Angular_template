@@ -11,12 +11,16 @@ import {ListOfUsersComponent } from './components/list-of-users/list-of-users.co
 import {ListOfUsersService} from './services/ListOfUsers/list-of-users.service';
 import {RegistrationComponent } from './components/registration/registration.component';
 import {RegistrationService} from './services/Registration/registration.service';
+import { LoginComponent } from './components/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {LoginService} from './services/Login/login.service';
 
 const appRoutes: Routes = [
-  {path: '',component:TestComponentComponent},
+  {path: '',component:LoginComponent},
   {path: 'test',component:TestComponent2Component},
   {path: 'ListUsers',component:ListOfUsersComponent},
-  {path: 'Registration',component:RegistrationComponent}
+  {path: 'Registration',component:RegistrationComponent},
+  {path: 'Login',component:LoginComponent}
 ];
 
 @NgModule({
@@ -25,16 +29,19 @@ const appRoutes: Routes = [
     TestComponentComponent,
     TestComponent2Component,
     ListOfUsersComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [ListOfUsersService,
-              RegistrationService],
+              RegistrationService,
+    LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
