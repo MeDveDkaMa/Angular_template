@@ -11,8 +11,8 @@ import {ListOfUsersComponent } from './components/list-of-users/list-of-users.co
 import {ListOfUsersService} from './services/ListOfUsers/list-of-users.service';
 import {RegistrationComponent } from './components/registration/registration.component';
 import {RegistrationService} from './services/Registration/registration.service';
-import { LoginComponent } from './components/login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {LoginComponent } from './components/login/login.component';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LoginService} from './services/Login/login.service';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {SessionService} from './services/session.service';
