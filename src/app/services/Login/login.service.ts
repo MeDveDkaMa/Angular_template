@@ -31,7 +31,7 @@ export class LoginService {
             password:password,
         };
         ///console.log(params);
-        return this.restService.doCall('doLogin',params)
+        return this.restService.doCall('doLogin',params,"POST")
             .pipe(
                 map((res) => {
                     this.password = res.token;

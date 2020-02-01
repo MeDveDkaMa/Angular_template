@@ -18,7 +18,7 @@ export class RestService {
    * @param methodName - имя метода
    * @param params - параметры
    */
-  public doCall(methodName: string, params: any) {
+  public doCall(methodName: string, params: any, type: string) {
     const url = RestService.DEFAULT_PATH + methodName;
     const LOGIN_API: string = 'http://0.0.0.0:8080/client/login';
     console.log('calling ' + methodName + ' with params: ', params);
@@ -27,7 +27,7 @@ export class RestService {
       body: params,
       withCredentials: true
     };
-    return this.httpClient.request('POST', LOGIN_API, options)
+    return this.httpClient.request(type, LOGIN_API, options)
       .pipe(map((response) => {
         return this.mapResponse(methodName, response);
       }));

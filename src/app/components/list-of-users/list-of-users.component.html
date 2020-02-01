@@ -1,11 +1,11 @@
-<!--<p>list-of-users works!</p>-->
+<!--&lt;!&ndash;<p>list-of-users works!</p>&ndash;&gt;-->
 
 
-<div class="container">
-    <h1>Quarkus REST Service</h1>
+<!--<div class="container">-->
+<!--    <h1>Quarkus REST Service</h1>-->
 
 
-<!--    <person-viewer [detail]="user" (add)="onAddPerson($event)"></person-viewer>-->
+<!--    <person-viewer [detail]="dish" (add)="onAddPerson($event)"></person-viewer>-->
 
 <!--    <h3>Person List</h3>-->
 <!--    <br>-->
@@ -17,14 +17,46 @@
 <!--        <div class="col-2">Age</div>-->
 <!--        <div class="col-2">E-mail</div>-->
 <!--    </div>-->
-<!--    <div class="row" *ngFor="let user of users;">-->
-<!--        <div class="col-1">{{ user.id }}</div>-->
-<!--        <div class="col-2">{{ user.firstname }}</div>-->
-<!--        <div class="col-2">{{ user.lastname }}</div>-->
-<!--        <div class="col-2">{{ user.age }}</div>-->
-<!--        <div class="col-2">{{ user.email }}</div>-->
-<!--    </div>-->
+<!--&lt;!&ndash;    <div class="row" *ngFor="let user of users;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-1">{{ user.id }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-2">{{ user.firstname }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-2">{{ user.lastname }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-2">{{ user.age }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-2">{{ user.email }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--        <div class="row" *ngFor="let dish of dishes;">-->
+<!--            <div class="col-1">{{ dish.id }}</div>-->
+<!--            <div class="col-2">{{ dish.name }}</div>-->
+<!--            <div class="col-2">{{ dish.price }}</div>-->
+<!--            <div class="col-2">{{ dish.composition }}</div>-->
+<!--        </div>-->
 <!--    </div >-->
 <!--    </div >-->
 
-    <app-data-table></app-data-table>
+<!--&lt;!&ndash;    <app-data-table></app-data-table>&ndash;&gt;-->
+<!--<p>list-of-users works!</p>-->
+
+
+<div class="container">
+    <h1>Restaurant Service</h1>
+
+
+    <!--    <person-viewer [detail]="user" (add)="onAddPerson($event)"></person-viewer>-->
+
+    <h3>List of dish</h3>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1">Id</div>
+            <div class="col-2">Name</div>
+            <div class="col-2">Composition</div>
+            <div class="col-2">Price</div>
+        </div>
+        <div class="row" *ngFor="let dish of dishes;">
+            <div class="col-1">{{ dish.id }}</div>
+            <div class="col-2">{{ dish.name }}</div>
+            <div class="col-2">{{ dish.composition }}</div>
+            <div class="col-2">{{ dish.price }}</div>
+        </div>
+    </div >
+</div >

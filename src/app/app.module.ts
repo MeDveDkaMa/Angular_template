@@ -17,10 +17,10 @@ import {LoginService} from './services/Login/login.service';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {SessionService} from './services/session.service';
 import {RestService} from './services/rest.service';
-import { DataTableComponent } from './components/data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { DataTableComponent } from './components/data-table/data-table.component';
 
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     ListOfUsersComponent,
     RegistrationComponent,
     LoginComponent,
-    DataTableComponent
+    DataTableComponent,
   ],
   imports: [
     BrowserModule,
