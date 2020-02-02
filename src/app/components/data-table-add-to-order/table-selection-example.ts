@@ -69,9 +69,10 @@ export class TableSelectionExample implements OnInit{
 
     AddToOrder() {
         let id:string;
-        console.log("ADD TO ORDER");
+        console.log("ADD ORDER");
         id = localStorage.getItem("id");
         this.service.createOrder(id).subscribe((res: any)=>{});
+        console.log("ADD DISH TO ORDER");
     }
 
     closeModal(id: string) {
