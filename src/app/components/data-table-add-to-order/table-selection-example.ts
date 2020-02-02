@@ -5,6 +5,7 @@ import {DataTableDataSource} from '../data-table/data-table-datasource';
 import {Dishes} from '../list-of-users/Dishes';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
 import {ModalService} from '../../_modal';
+import {LoginService} from '../../services/Login/login.service';
 
 /**
  * @title Table with selection
@@ -20,8 +21,13 @@ export class TableSelectionExample implements OnInit{
     selection2 = new SelectionModel<Dishes>(true, []);
     displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
 
+    public id:string;
+
+
+
     constructor(private listOfUsersService: ListOfUsersService,
-                private modalService: ModalService) {
+                private modalService: ModalService,
+                private service:LoginService) {
     }
 
     ngOnInit(): void {
@@ -38,7 +44,10 @@ export class TableSelectionExample implements OnInit{
 
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
+
         const numSelected = this.selection2.selected.length;
+        const numSelected2 = this.selection2.selected;
+        //console.log(numSelected2);
         const numRows = this.dataSource2.data.length;
         return numSelected === numRows;
     }
@@ -58,10 +67,11 @@ export class TableSelectionExample implements OnInit{
         return `${this.selection2.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
     }
 
-    AddToOrder(id: string) {
+    AddToOrder() {
+        let id:string;
         console.log("ADD TO ORDER");
-
-        this.modalService.open(id);
+        id = localStorage.getItem("id");
+        this.service.createOrder(id).subscribe((res: any)=>{});
     }
 
     closeModal(id: string) {

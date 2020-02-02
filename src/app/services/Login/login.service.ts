@@ -16,6 +16,7 @@ export class LoginService {
 
     public email:string;
     public password:string;
+    public id:string;
 
   constructor(private http: HttpClient,
               private sessionService:SessionService,
@@ -31,19 +32,31 @@ export class LoginService {
             password:password,
         };
         ///console.log(params);
-        return this.restService.doCall('doLogin',params,"POST")
+        return this.restService.doCall('/client/login',params,"POST")
             .pipe(
                 map((res) => {
                     this.password = res.token;
                     console.log(res.password);
                     this.email = res.email;
+                    this.id = res.id;
                     this.sessionService.setSessionParam('email', this.email);
                     this.sessionService.setSessionParam('password', this.password);
-                     localStorage.setItem("token",res.password);
-                     console.log(localStorage);
+                    this.sessionService.setSessionParam('id', this.id);
+                    localStorage.setItem("token",res.password);
+                    localStorage.setItem("id",res.id);
+                    console.log(localStorage);
                     return res;
                 })
             );
+    }
+
+
+    public createOrder(id: string){
+        const params = {
+            id:id,
+        };
+        console.log(params);
+        return this.restService.doCall('/orders/CreateOrder',params,"POST")
     }
 
   // public doLogin(email: string, password:string){
