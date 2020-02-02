@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {DataTableDataSource} from '../data-table/data-table-datasource';
 import {Dishes} from '../list-of-users/Dishes';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
+import {ModalService} from '../../_modal';
 
 /**
  * @title Table with selection
@@ -19,7 +20,8 @@ export class TableSelectionExample implements OnInit{
     selection2 = new SelectionModel<Dishes>(true, []);
     displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
 
-    constructor(private listOfUsersService: ListOfUsersService) {
+    constructor(private listOfUsersService: ListOfUsersService,
+                private modalService: ModalService) {
     }
 
     ngOnInit(): void {
@@ -55,6 +57,17 @@ export class TableSelectionExample implements OnInit{
         }
         return `${this.selection2.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
     }
+
+    AddToOrder(id: string) {
+        console.log("ADD TO ORDER");
+
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string) {
+        this.modalService.close(id);
+    }
+
 }
 
 

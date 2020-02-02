@@ -54,6 +54,11 @@
                [pageSizeOptions]="[5, 10, 25, 40]">
 </mat-paginator>
 
+<br>
+<div class="example-button-row">
+    <button (click)="AddToOrder('custom-modal-1');" mat-fab color="primary">Add</button>
+    <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>
+</div>
 
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
