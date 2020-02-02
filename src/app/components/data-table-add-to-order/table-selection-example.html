@@ -1,27 +1,27 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
     <!-- Checkbox Column -->
     <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
             <mat-checkbox (change)="$event ? masterToggle() : null"
-                          [checked]="selection.hasValue() && isAllSelected()"
-                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          [checked]="selection2.hasValue() && isAllSelected()"
+                          [indeterminate]="selection2.hasValue() && !isAllSelected()"
                           [aria-label]="checkboxLabel()">
             </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
             <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selection.toggle(row) : null"
-                          [checked]="selection.isSelected(row)"
+                          (change)="$event ? selection2.toggle(row) : null"
+                          [checked]="selection2.isSelected(row)"
                           [aria-label]="checkboxLabel(row)">
             </mat-checkbox>
         </td>
     </ng-container>
 
-    <!-- Position Column -->
+    <!-- Id Column -->
     <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <th mat-header-cell *matHeaderCellDef> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <!-- Name Column -->
@@ -30,23 +30,29 @@
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Price Column -->
     <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Composition Column -->
     <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <th mat-header-cell *matHeaderCellDef> Composition </th>
+        <td mat-cell *matCellDef="let element"> {{element.composition}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-        (click)="selection.toggle(row)">
+        (click)="selection2.toggle(row)">
     </tr>
 </table>
+<mat-paginator #paginator
+               [length]="dataSource2?.data.length"
+               [pageIndex]="0"
+               [pageSize]="7"
+               [pageSizeOptions]="[5, 10, 25, 40]">
+</mat-paginator>
 
 
 <!-- Copyright 2019 Google LLC. All Rights Reserved.

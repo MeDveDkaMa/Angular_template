@@ -17,14 +17,13 @@ import {LoginService} from './services/Login/login.service';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {SessionService} from './services/session.service';
 import {RestService} from './services/rest.service';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { DataTableComponent } from './components/data-table/data-table.component';
+import {MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule } from '@angular/material/sort';
+import {DataTableComponent } from './components/data-table/data-table.component';
 import {DataTablesModule} from 'angular-datatables';
 import {MatButtonModule, MatCheckboxModule, MatIcon, MatIconModule} from '@angular/material';
-import { ModalModule } from './_modal';
-import { DataTaleModalComponent } from './components/data-table-modal/data-tale-modal/data-tale-modal.component';
+import {ModalModule } from './_modal';
 import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
 
 
@@ -46,8 +45,7 @@ const appRoutes: Routes = [
     RegistrationComponent,
     LoginComponent,
     DataTableComponent,
-    DataTaleModalComponent,
-      TableSelectionExample
+    TableSelectionExample
   ],
   imports: [
     BrowserModule,
