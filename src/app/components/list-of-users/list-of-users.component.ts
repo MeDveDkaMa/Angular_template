@@ -3,6 +3,9 @@ import {Users} from './list-of-users.interface';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
 import {HttpClient} from '@angular/common/http';
 import {Dishes} from './Dishes';
+import {ModalModule, ModalService} from '../../_modal';
+
+
 
 @Component({
   selector: 'app-list-of-users',
@@ -19,7 +22,7 @@ export class ListOfUsersComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   constructor(private listOfUsersService: ListOfUsersService,
-              private http: HttpClient) { }
+              private modalService: ModalService) { }
 
 
   ngOnInit() {
@@ -43,6 +46,14 @@ export class ListOfUsersComponent implements OnInit {
           this.listPersons();
         }
     );
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
 }

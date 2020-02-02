@@ -23,6 +23,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import {DataTablesModule} from 'angular-datatables';
 import {MatButtonModule, MatIcon, MatIconModule} from '@angular/material';
+import { ModalModule } from './_modal';
+
 
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
@@ -55,7 +57,8 @@ const appRoutes: Routes = [
     MatSortModule,
     DataTablesModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ModalModule
   ],
   providers: [
       ListOfUsersService,
