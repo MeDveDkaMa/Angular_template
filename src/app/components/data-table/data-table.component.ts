@@ -4,8 +4,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DataTableDataSource, Dishes } from './data-table-datasource';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
-import {HttpClient} from '@angular/common/http';
-// import {Dishes} from '../list-of-users/Dishes';
 
 @Component({
   selector: 'app-data-table',
@@ -17,11 +15,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Dishes>;
   dataSource: DataTableDataSource;
-  dataSource2: DataTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name','price','composition'];
-  // displayedColumns = ['id', 'name'];
 
   constructor(private listOfUsersService: ListOfUsersService,) { }
 
@@ -32,7 +28,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
       console.log(data);
         },
             error => {
-      console.log("error en get persons", error)});
+      console.log("error get dishes", error)});
 
   }
 
