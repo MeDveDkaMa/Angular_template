@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DataTableComponent } from './components/data-table/data-table.component';
+import {DataTablesModule} from 'angular-datatables';
 
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    DataTablesModule
   ],
   providers: [
       ListOfUsersService,

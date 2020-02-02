@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {Users} from './list-of-users.interface';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
 import {HttpClient} from '@angular/common/http';
@@ -11,12 +11,25 @@ import {Dishes} from './Dishes';
 })
 export class ListOfUsersComponent implements OnInit {
 
-  user: Users;
-  users: Users[];
-  dish:Dishes;
-  dishes:Dishes[];
+  //@Output() dishes:Dishes[];
+
+  public user: Users;
+  public users: Users[];
+  public dish:Dishes;
+  // public dishes:Dishes[];
+  public dishes:any;
 
 
+  public tabledata: any;
+
+  public data = [
+    {name: 'therichpost', email: 'therichpost@gmail.com', website:'therichpost.com'},
+    {name: 'therichpost', email: 'therichpost@gmail.com', website:'therichpost.com'},
+    {name: 'therichpost', email: 'therichpost@gmail.com', website:'therichpost.com'},
+    {name: 'therichpost', email: 'therichpost@gmail.com', website:'therichpost.com'},
+  ];
+
+  dtOptions: DataTables.Settings = {};
   constructor(private listOfUsersService: ListOfUsersService,
               private http: HttpClient) { }
 
@@ -24,6 +37,10 @@ export class ListOfUsersComponent implements OnInit {
   ngOnInit() {
    // this.listPersons();
     this.listOfUsersService.getDish2().subscribe((data: Dishes[]) => this.dishes = data, error => console.log("error en get persons", error));
+    this.listOfUsersService.getDish2().subscribe((data: Dishes[]) => this.tabledata = data, error => console.log("error en get persons", error));
+    this.tabledata = this.dishes;
+    console.log(this.data);
+    console.log(this.dishes);
   }
 
   private listPersons() {
