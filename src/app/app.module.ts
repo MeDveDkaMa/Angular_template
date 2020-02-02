@@ -22,8 +22,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import {DataTablesModule} from 'angular-datatables';
-import {MatButtonModule, MatIcon, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatIcon, MatIconModule} from '@angular/material';
 import { ModalModule } from './_modal';
+import { DataTaleModalComponent } from './components/data-table-modal/data-tale-modal/data-tale-modal.component';
+import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
 
 
 const appRoutes: Routes = [
@@ -44,6 +46,8 @@ const appRoutes: Routes = [
     RegistrationComponent,
     LoginComponent,
     DataTableComponent,
+    DataTaleModalComponent,
+      TableSelectionExample
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ const appRoutes: Routes = [
     DataTablesModule,
     MatIconModule,
     MatButtonModule,
-    ModalModule
+    ModalModule,
+    MatCheckboxModule,
   ],
   providers: [
       ListOfUsersService,
