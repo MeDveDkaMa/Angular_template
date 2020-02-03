@@ -25,6 +25,7 @@ import {DataTablesModule} from 'angular-datatables';
 import {MatButtonModule, MatCheckboxModule, MatIcon, MatIconModule} from '@angular/material';
 import {ModalModule } from './_modal';
 import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
+import {OrdersService} from './services/Orders/orders.service';
 
 
 const appRoutes: Routes = [
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
       RegistrationService,
       LoginService,
       SessionService,
-      RestService],
+      RestService,
+      OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

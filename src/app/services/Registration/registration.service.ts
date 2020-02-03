@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Users} from '../../components/list-of-users/list-of-users.interface';
+
 
 const REGISTRATION_API: string = 'http://localhost:8080/client/add';
 

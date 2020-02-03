@@ -1,11 +1,11 @@
 import {SelectionModel} from '@angular/cdk/collections';
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {DataTableDataSource} from '../data-table/data-table-datasource';
 import {Dishes} from '../list-of-users/Dishes';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
 import {ModalService} from '../../_modal';
-import {LoginService} from '../../services/Login/login.service';
+import {Cart} from './Cart';
+import {OrdersService} from '../../services/Orders/orders.service';
 
 /**
  * @title Table with selection
@@ -23,11 +23,17 @@ export class TableSelectionExample implements OnInit{
 
     public id:string;
 
+    cart:Cart;
+    cartT: Cart = new Cart("2");
+
+    dishtoAdd:any;
+
+
 
 
     constructor(private listOfUsersService: ListOfUsersService,
                 private modalService: ModalService,
-                private service:LoginService) {
+                private service:OrdersService) {
     }
 
     ngOnInit(): void {
@@ -47,7 +53,8 @@ export class TableSelectionExample implements OnInit{
 
         const numSelected = this.selection2.selected.length;
         const numSelected2 = this.selection2.selected;
-        //console.log(numSelected2);
+        this.dishtoAdd = this.selection2.selected;
+        //console.log(this.dishtoAdd);
         const numRows = this.dataSource2.data.length;
         return numSelected === numRows;
     }
@@ -73,7 +80,13 @@ export class TableSelectionExample implements OnInit{
         id = localStorage.getItem("id");
         this.service.createOrder(id).subscribe((res: any)=>{});
         console.log("ADD DISH TO ORDER");
+       // console.log(this.dishtoAdd);
+        let count = 2;
+        this.service.AddDishToOrder(this.cartT,this.dishtoAdd,count).subscribe((res: any)=>{});
+
+
     }
+
 
     closeModal(id: string) {
         this.modalService.close(id);
