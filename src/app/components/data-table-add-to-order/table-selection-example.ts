@@ -82,7 +82,7 @@ export class TableSelectionExample implements OnInit{
         console.log("ADD DISH TO ORDER");
        // console.log(this.dishtoAdd);
         let count = 2;
-        this.service.AddDishToOrder(this.cartT,this.dishtoAdd,count).subscribe((res: any)=>{});
+        // this.service.AddDishToOrder(this.cartT,this.dishtoAdd,count).subscribe((res: any)=>{});
 
 
     }

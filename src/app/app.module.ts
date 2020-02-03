@@ -26,6 +26,7 @@ import {MatButtonModule, MatCheckboxModule, MatIcon, MatIconModule} from '@angul
 import {ModalModule } from './_modal';
 import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
 import {OrdersService} from './services/Orders/orders.service';
+import { FormAddToOrderComponent } from './components/form-add-to-order/form-add-to-order.component';
 
 
 const appRoutes: Routes = [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     RegistrationComponent,
     LoginComponent,
     DataTableComponent,
-    TableSelectionExample
+    TableSelectionExample,
+    FormAddToOrderComponent
   ],
   imports: [
     BrowserModule,

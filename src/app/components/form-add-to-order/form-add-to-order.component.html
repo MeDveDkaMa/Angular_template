@@ -1,0 +1,49 @@
+<!--<p>registration works!</p>-->
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!--<div style="text-align: center">-->
+<!--    <h1>{{message}}</h1>-->
+<!--</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> ID dish:  </label>
+                        <input class="form-control" required type="text" [(ngModel)]="dishToAdd.id" name="name" id=""
+                               maxlength="28" placeholder="Enter id dish what do you want" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> ID cart:  </label>
+                        <input class="form-control" required type="text" [(ngModel)]="cart.id" name="name" id=""
+                               maxlength="28" placeholder="Enter id dish what do you want" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstname"><span class="req">* </span> Count: </label>
+                        <input class="form-control" type="text" [(ngModel)]="count" name="email" id="txt" required
+                               placeholder="Enter your count" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="AddToOrder()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+
