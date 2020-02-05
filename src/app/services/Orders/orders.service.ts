@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SessionService} from '../session.service';
 import {RestService} from '../rest.service';
+import {Observable} from 'rxjs';
+import {Dishes} from '../../components/list-of-users/Dishes';
+import {Cart} from '../../components/form-add-to-order/Cart';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -9,9 +13,16 @@ import {RestService} from '../rest.service';
 })
 export class OrdersService {
 
+
+  public id:string;
+
+  cart:Cart[];
+  public listNrs: Array<any> = [];
+  nrs: any;
+
   constructor(private http: HttpClient,
               private sessionService:SessionService,
-              private restService:RestService) { }
+              private restService:RestService) {}
 
   public createOrder(id: string){
     const params = {
@@ -21,20 +32,38 @@ export class OrdersService {
     return this.restService.doCall('/orders/CreateOrder',params,"POST")
   }
 
+  public getCartID(id: string){
+    const params = {
+      id:id
+    };
+    return this.restService.doCall('/orders/GetCartID',params,"POST")
+        .pipe(
+            map((res:any) => {
+              res => res.id;
+              return res;
+            })
+        );
+  }
 
 
-  public AddDishToOrder(Cart,cout : string, DishToAdd){
+  // getCartID2(): Observable<any[]> {
+  //   return this.http
+  //       .get('/orders/GetCartID')
+  //       .pipe(map(result=>result.Cart))
+  // }
+
+  public AddDishToOrder(Cart,DishToAdd,cout: string,){
     const params = {
       dish:
           {
-            id:2
+            id:DishToAdd.id
           },
 
-      count:12,
+      count:cout,
 
       cart:
           {
-            id:577
+            id:Cart
           }
     };
 

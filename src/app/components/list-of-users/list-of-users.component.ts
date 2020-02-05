@@ -4,6 +4,7 @@ import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.servi
 import {HttpClient} from '@angular/common/http';
 import {Dishes} from './Dishes';
 import {ModalModule, ModalService} from '../../_modal';
+import {OrdersService} from '../../services/Orders/orders.service';
 
 
 
@@ -22,7 +23,8 @@ export class ListOfUsersComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   constructor(private listOfUsersService: ListOfUsersService,
-              private modalService: ModalService) { }
+              private modalService: ModalService,
+              private service:OrdersService) { }
 
 
   ngOnInit() {
@@ -38,6 +40,11 @@ export class ListOfUsersComponent implements OnInit {
     this.listOfUsersService.getPersons().subscribe((data: Users[]) => this.users = data, error => console.log("error en get persons", error));
   }
 
+
+  CreateOrder(){
+    console.log("ADD ORDER");
+    this.service.createOrder(localStorage.getItem("id")).subscribe((res: any)=>{});
+  }
 
   onAddPerson(event: Users) {
     this.listOfUsersService.createPerson(event).subscribe(
