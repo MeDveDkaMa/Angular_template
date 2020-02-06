@@ -23,16 +23,6 @@ export class DishService {
     return this.restService.doCall('/dish/addDish',params,"POST")
         .pipe(
             map((res) => {
-              // this.password = res.token;
-              // console.log(res.password);
-              // this.email = res.email;
-              // this.id = res.id;
-              // this.sessionService.setSessionParam('email', this.email);
-              // this.sessionService.setSessionParam('password', this.password);
-              // this.sessionService.setSessionParam('id', this.id);
-              // localStorage.setItem("token",res.password);
-              // localStorage.setItem("id",res.id);
-              // console.log(localStorage);
               return res;
             })
         );

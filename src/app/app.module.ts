@@ -34,7 +34,7 @@ import {DishService} from './services/Dish/dish.service';
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
   {path: 'test',component:TestComponent2Component},
-  {path: 'ListUsers',component:ListOfUsersComponent},
+  {path: 'ListOfDishes',component:ListOfUsersComponent},
   {path: 'Registration',component:RegistrationComponent},
   {path: 'Login',component:LoginComponent}
   // {path: 'Table',component:LoginComponent}

@@ -6,6 +6,5 @@ export class User{
         adress:string,
         email:string,
         password:string,
-        // role:role
     ){}
 }
