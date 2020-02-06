@@ -27,6 +27,8 @@ import {ModalModule } from './_modal';
 import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
 import {OrdersService} from './services/Orders/orders.service';
 import { FormAddToOrderComponent } from './components/form-add-to-order/form-add-to-order.component';
+import { FormAddToDishComponent } from './components/form-add-to-dish/form-add-to-dish.component';
+import {DishService} from './services/Dish/dish.service';
 
 
 const appRoutes: Routes = [
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DataTableComponent,
     TableSelectionExample,
-    FormAddToOrderComponent
+    FormAddToOrderComponent,
+    FormAddToDishComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ const appRoutes: Routes = [
       LoginService,
       SessionService,
       RestService,
-      OrdersService],
+      OrdersService,
+      DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

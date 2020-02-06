@@ -14,6 +14,7 @@
 <div class="example-button-row">
     <button (click)="openModal('custom-modal-2');" mat-fab color="primary">Order</button>
     <button (click)="CreateOrder();" mat-fab color="primary">Create</button>
+    <button (click)="openModal('custom-modal-3');" mat-fab color="primary">Add</button>
 </div>
 
 <jw-modal id="custom-modal-1">
@@ -31,6 +32,19 @@
     <h1>Add dish to order</h1>
     <!--    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>-->
     <app-form-add-to-order></app-form-add-to-order>
+    <!--    <br>-->
+    <!--    <div class="example-button-row">-->
+    <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
+    <!--        <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>-->
+    <!--    </div>-->
+</jw-modal>
+
+
+
+<jw-modal id="custom-modal-3">
+    <h1>Add dish to stock</h1>
+    <!--    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>-->
+    <app-form-add-to-dish></app-form-add-to-dish>
     <!--    <br>-->
     <!--    <div class="example-button-row">-->
     <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
