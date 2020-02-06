@@ -7,6 +7,7 @@ import {Cart} from './Cart';
 import {Dish} from './Dish';
 import {CartProduct} from './CartProduct';
 import {stringify} from 'querystring';
+import {DishInOrder} from './DishInOrder';
 
 @Component({
   selector: 'app-form-add-to-order',
@@ -20,56 +21,41 @@ export class FormAddToOrderComponent implements OnInit {
 
 
   dishToAdd: Dish = new Dish(null);
+  dishinorder:DishInOrder[];
  // cartProduct: CartProduct = new CartProduct("");
 
   constructor(private modalService: ModalService,
               private service:OrdersService) { }
 
   count:string;
+
   ngOnInit() {
   }
 
 
-  // CreateOrder(){
-  //   console.log("ADD ORDER");
-  //   this.service.createOrder(localStorage.getItem("id")).subscribe((res: any)=>{});
-  // }
-
-
   AddToOrder() {
-
     this.service.getCartID(localStorage.getItem("id")).subscribe((res: any)=>{
       this.id = res[0].id;
       console.log(this.id);
-      this.AddToOrder2(this.id);
-      // for (let entry of this.cart) {
-      //   console.log(entry); // 1, "string", false
-      //   console.log(this.id); // 1, "string", false
-      // }
-
-      // console.log("CART" +this.cart);
+      this.AddDishToOrder(this.id);
       this.id = res.id;
-      //this.AddToOrder2(this.id);
-      // console.log("TTTTTTTTTTTTT" +this.id);
-
-
     });
 
-
-
   }
 
-  AddToOrder2(id:string){
-    this.service.AddDishToOrder(id,this.dishToAdd,this.count).subscribe((res: any)=>{});
+  AddDishToOrder(id:string){
+    this.service.AddDishToOrder(this.id,this.dishToAdd,this.count).subscribe((res: any)=>{});
+    this.GetOrder();
   }
-
-  GetCardID(){
-
-  }
-
 
   closeModal(id: string) {
     this.modalService.close(id);
   }
 
+  GetOrder(){
+    this.service.getOrder().subscribe((res: any)=>{
+      this.dishinorder = res;
+      console.log(this.dishinorder);
+    });
+  }
 }

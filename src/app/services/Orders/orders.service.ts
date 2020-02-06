@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {Dishes} from '../../components/list-of-users/Dishes';
 import {Cart} from '../../components/form-add-to-order/Cart';
 import {map} from 'rxjs/operators';
+import {DishInOrder} from '../../components/form-add-to-order/DishInOrder';
 
 
 @Injectable({
@@ -45,6 +46,11 @@ export class OrdersService {
         );
   }
 
+
+
+    getOrder(): Observable<DishInOrder[]> {
+        return this.http.get<DishInOrder[]>('http://0.0.0.0:8080/orders/GetOrder');
+    }
 
   // getCartID2(): Observable<any[]> {
   //   return this.http
