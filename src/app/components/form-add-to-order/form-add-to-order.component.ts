@@ -6,7 +6,6 @@ import {OrdersService} from '../../services/Orders/orders.service';
 import {Cart} from './Cart';
 import {Dish} from './Dish';
 import {CartProduct} from './CartProduct';
-import {stringify} from 'querystring';
 import {DishInOrder} from './DishInOrder';
 
 @Component({
@@ -21,7 +20,7 @@ export class FormAddToOrderComponent implements OnInit {
 
 
   dishToAdd: Dish = new Dish(null);
-  dishinorder:DishInOrder[];
+  dishInOrder:DishInOrder[];
  // cartProduct: CartProduct = new CartProduct("");
 
   constructor(private modalService: ModalService,
@@ -54,8 +53,8 @@ export class FormAddToOrderComponent implements OnInit {
 
   GetOrder(id:string){
     this.service.getOrder(id).subscribe((res: any)=>{
-      this.dishinorder = res;
-      console.log(this.dishinorder);
+      this.dishInOrder = res;
+      console.log(this.dishInOrder);
     });
   }
 }
