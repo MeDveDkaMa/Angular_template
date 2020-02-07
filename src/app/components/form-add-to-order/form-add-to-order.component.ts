@@ -45,15 +45,15 @@ export class FormAddToOrderComponent implements OnInit {
 
   AddDishToOrder(id:string){
     this.service.AddDishToOrder(this.id,this.dishToAdd,this.count).subscribe((res: any)=>{});
-    this.GetOrder();
+    this.GetOrder(this.id);
   }
 
   closeModal(id: string) {
     this.modalService.close(id);
   }
 
-  GetOrder(){
-    this.service.getOrder().subscribe((res: any)=>{
+  GetOrder(id:string){
+    this.service.getOrder(id).subscribe((res: any)=>{
       this.dishinorder = res;
       console.log(this.dishinorder);
     });

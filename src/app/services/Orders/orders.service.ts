@@ -17,10 +17,6 @@ export class OrdersService {
 
   public id:string;
 
-  cart:Cart[];
-  public listNrs: Array<any> = [];
-  nrs: any;
-
   constructor(private http: HttpClient,
               private sessionService:SessionService,
               private restService:RestService) {}
@@ -46,11 +42,13 @@ export class OrdersService {
         );
   }
 
-
-
-    getOrder(): Observable<DishInOrder[]> {
-        return this.http.get<DishInOrder[]>('http://0.0.0.0:8080/orders/GetOrder');
+   public getOrder(id: string): Observable<DishInOrder[]> {
+        const params = {
+            id:id
+        };
+        return this.restService.doCall('/orders/GetOrder',params,"POST");
     }
+
 
   // getCartID2(): Observable<any[]> {
   //   return this.http
