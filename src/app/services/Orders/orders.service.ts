@@ -42,6 +42,19 @@ export class OrdersService {
         );
   }
 
+  public deleteOrderById(id: string){
+      const params = {
+          id:id
+      };
+      return this.restService.doCall('/orders/Delete',params,"POST")
+          .pipe(
+              map((res:any) => {
+                  return res;
+              })
+          );
+  }
+
+
    public getOrder(id: string): Observable<DishInOrder[]> {
         const params = {
             id:id

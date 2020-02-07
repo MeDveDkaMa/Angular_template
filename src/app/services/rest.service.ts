@@ -34,7 +34,7 @@ export class RestService {
       }));
   }
 
-  /**
+    /**
    * Мапинг результата вызова
    * @param methodName
    * @param response

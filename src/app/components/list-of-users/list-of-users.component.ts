@@ -1,9 +1,8 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Users} from './list-of-users.interface';
 import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
-import {HttpClient} from '@angular/common/http';
 import {Dishes} from './Dishes';
-import {ModalModule, ModalService} from '../../_modal';
+import {ModalService} from '../../_modal';
 import {OrdersService} from '../../services/Orders/orders.service';
 
 
@@ -17,11 +16,10 @@ export class ListOfUsersComponent implements OnInit {
 
   public user: Users;
   public users: Users[];
-  public dish:Dishes;
-  public dishes:any;
+  public dish: Dishes;
+  public id: string;
 
 
-  dtOptions: DataTables.Settings = {};
   constructor(private listOfUsersService: ListOfUsersService,
               private modalService: ModalService,
               private service:OrdersService) { }
@@ -46,13 +44,15 @@ export class ListOfUsersComponent implements OnInit {
     this.service.createOrder(localStorage.getItem("id")).subscribe((res: any)=>{});
   }
 
-  onAddPerson(event: Users) {
-    this.listOfUsersService.createPerson(event).subscribe(
-        data => {
-          this.user = Object.assign({}, this.user, event);
-          this.listPersons();
-        }
-    );
+
+
+  DeleteOrderById(){
+    this.service.getCartID(localStorage.getItem("id")).subscribe((res: any)=>{
+      this.id = res[0].id;
+      this.service.deleteOrderById(this.id).subscribe((res: any)=>{});
+    });
+
+
   }
 
   openModal(id: string) {
@@ -61,6 +61,15 @@ export class ListOfUsersComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  onAddPerson(event: Users) {
+    this.listOfUsersService.createPerson(event).subscribe(
+        data => {
+          this.user = Object.assign({}, this.user, event);
+          this.listPersons();
+        }
+    );
   }
 
 }

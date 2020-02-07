@@ -12,7 +12,7 @@
 <!--<h3>Fab Buttons</h3>-->
 <br>
 <div class="example-button-row">
-    <button (click)="openModal('custom-modal-2');" mat-fab color="primary">Order</button>
+    <button (click)="openModal('custom-modal-2');" (click)="DeleteOrderById()" mat-fab color="primary">Order</button>
     <button (click)="CreateOrder();" mat-fab color="primary">Create</button>
     <button (click)="openModal('custom-modal-3');" mat-fab color="primary">Add</button>
 </div>
