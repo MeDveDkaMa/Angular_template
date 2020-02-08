@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {SessionService} from '../session.service';
 import {RestService} from '../rest.service';
 import {Observable} from 'rxjs';
-import {Dishes} from '../../components/list-of-users/Dishes';
-import {Cart} from '../../components/form-add-to-order/Cart';
 import {map} from 'rxjs/operators';
 import {DishInOrder} from '../../components/form-add-to-order/DishInOrder';
 

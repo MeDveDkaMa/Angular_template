@@ -23,7 +23,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.dataSource = new DataTableDataSource();
-    this.listOfUsersService.getDish2().subscribe((data: Dishes[]) => {
+    this.listOfUsersService.getDish3().subscribe((data: Dishes[]) => {
       this.dataSource.data = data;
       console.log(data);
         },
