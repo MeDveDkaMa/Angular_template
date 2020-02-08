@@ -16,8 +16,7 @@ export class FormAddToDishComponent implements OnInit {
   public composition:string;
   public price:string;
 
-  constructor(private service:DishService,
-              private router:Router) { }
+  constructor(private service:DishService) { }
 
   public addDish(){
 

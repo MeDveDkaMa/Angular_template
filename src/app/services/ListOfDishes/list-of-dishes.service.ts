@@ -15,9 +15,7 @@ export class ListOfDishesService {
               private restService:RestService) {
   }
 
-    public getDish(){
-        return this.restService.doCall('dish/GetDish',null,'GET');
-    }
+
 
 
 }

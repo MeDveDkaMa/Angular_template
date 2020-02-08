@@ -6,6 +6,7 @@ import {ListOfDishesService} from '../../services/ListOfDishes/list-of-dishes.se
 import {ModalService} from '../../_modal';
 import {Cart} from './Cart';
 import {OrdersService} from '../../services/Orders/orders.service';
+import {DishService} from '../../services/Dish/dish.service';
 
 /**
  * @title Table with selection
@@ -23,15 +24,13 @@ export class TableSelectionExample implements OnInit{
 
     public id:string;
 
-    cart:Cart;
-    cartT: Cart = new Cart("2");
 
     dishtoAdd:any;
 
 
 
 
-    constructor(private listOfUsersService: ListOfDishesService,
+    constructor(private dishService: DishService,
                 private modalService: ModalService,
                 private service:OrdersService) {
     }
@@ -39,7 +38,7 @@ export class TableSelectionExample implements OnInit{
     ngOnInit(): void {
 
         this.dataSource2 = new MatTableDataSource<Dishes>();
-        this.listOfUsersService.getDish().subscribe((data: Dishes[]) => {
+        this.dishService.getDish().subscribe((data: Dishes[]) => {
                 this.dataSource2.data = data;
                 console.log(data);
             },

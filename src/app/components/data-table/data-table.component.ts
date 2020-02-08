@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DataTableDataSource, Dishes } from './data-table-datasource';
 import {ListOfDishesService} from '../../services/ListOfDishes/list-of-dishes.service';
+import {DishService} from '../../services/Dish/dish.service';
 
 @Component({
   selector: 'app-data-table',
@@ -19,11 +20,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name','price','composition'];
 
-  constructor(private listOfUsersService: ListOfDishesService,) { }
+  constructor(private service: DishService) { }
 
   ngOnInit() {
     this.dataSource = new DataTableDataSource();
-    this.listOfUsersService.getDish().subscribe((data: Dishes[]) => {
+    this.service.getDish().subscribe((data: Dishes[]) => {
       this.dataSource.data = data;
       console.log(data);
         },

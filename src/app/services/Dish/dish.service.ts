@@ -27,4 +27,9 @@ export class DishService {
             })
         );
   }
+
+    public getDish(){
+        return this.restService.doCall('dish/GetDish',null,'GET');
+    }
+
 }
