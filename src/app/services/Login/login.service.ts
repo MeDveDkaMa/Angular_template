@@ -42,6 +42,7 @@ export class LoginService {
                     this.sessionService.setSessionParam('password', this.password);
                     this.sessionService.setSessionParam('id', this.id);
                     localStorage.setItem("token",res.password);
+                    localStorage.setItem("email",res.email);
                     localStorage.setItem("id",res.id);
                     console.log(localStorage);
                     return res;

@@ -21,8 +21,12 @@ export class FormAddToDishComponent implements OnInit {
 
   public addDish(){
 
-    this.service.addDish(this.name,this.composition,this.price).subscribe((data)=>{});
-           alert("Successfully");
+    this.service.addDish(this.name,this.composition,this.price).subscribe((data)=>{
+      alert("Successfully");
+    }, error =>{
+      alert("Error auth");
+    });
+
   }
 
   ngOnInit() {
