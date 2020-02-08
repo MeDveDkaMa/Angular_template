@@ -1,8 +1,8 @@
 import {SelectionModel} from '@angular/cdk/collections';
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {Dishes} from '../list-of-users/Dishes';
-import {ListOfUsersService} from '../../services/ListOfUsers/list-of-users.service';
+import {Dishes} from '../list-of-dishes/Dishes';
+import {ListOfDishesService} from '../../services/ListOfDishes/list-of-dishes.service';
 import {ModalService} from '../../_modal';
 import {Cart} from './Cart';
 import {OrdersService} from '../../services/Orders/orders.service';
@@ -31,7 +31,7 @@ export class TableSelectionExample implements OnInit{
 
 
 
-    constructor(private listOfUsersService: ListOfUsersService,
+    constructor(private listOfUsersService: ListOfDishesService,
                 private modalService: ModalService,
                 private service:OrdersService) {
     }
@@ -39,7 +39,7 @@ export class TableSelectionExample implements OnInit{
     ngOnInit(): void {
 
         this.dataSource2 = new MatTableDataSource<Dishes>();
-        this.listOfUsersService.getDish2().subscribe((data: Dishes[]) => {
+        this.listOfUsersService.getDish().subscribe((data: Dishes[]) => {
                 this.dataSource2.data = data;
                 console.log(data);
             },

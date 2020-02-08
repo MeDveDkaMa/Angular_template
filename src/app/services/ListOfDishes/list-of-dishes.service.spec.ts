@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ListOfUsersService } from './list-of-users.service';
+import { ListOfDishesService } from './list-of-dishes.service';
 
 describe('ListOfUsersService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ListOfUsersService = TestBed.get(ListOfUsersService);
+    const service: ListOfDishesService = TestBed.get(ListOfDishesService);
     expect(service).toBeTruthy();
   });
 });

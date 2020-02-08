@@ -7,8 +7,8 @@ import {TestComponentComponent } from './components/test-component/test-componen
 import {TestComponent2Component } from './components/test-component2/test-component2.component';
 import {RouterModule,Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import {ListOfUsersComponent } from './components/list-of-users/list-of-users.component';
-import {ListOfUsersService} from './services/ListOfUsers/list-of-users.service';
+import {ListOfDishesComponent } from './components/list-of-dishes/list-of-dishes.component';
+import {ListOfDishesService} from './services/ListOfDishes/list-of-dishes.service';
 import {RegistrationComponent } from './components/registration/registration.component';
 import {RegistrationService} from './services/Registration/registration.service';
 import {LoginComponent } from './components/login/login.component';
@@ -22,7 +22,7 @@ import {MatPaginatorModule } from '@angular/material/paginator';
 import {MatSortModule } from '@angular/material/sort';
 import {DataTableComponent } from './components/data-table/data-table.component';
 import {DataTablesModule} from 'angular-datatables';
-import {MatButtonModule, MatCheckboxModule, MatIcon, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatIconModule} from '@angular/material';
 import {ModalModule } from './_modal';
 import {TableSelectionExample} from './components/data-table-add-to-order/table-selection-example';
 import {OrdersService} from './services/Orders/orders.service';
@@ -34,7 +34,7 @@ import {DishService} from './services/Dish/dish.service';
 const appRoutes: Routes = [
   {path: '',component:LoginComponent},
   {path: 'test',component:TestComponent2Component},
-  {path: 'ListOfDishes',component:ListOfUsersComponent},
+  {path: 'ListOfDishes',component:ListOfDishesComponent},
   {path: 'Registration',component:RegistrationComponent},
   {path: 'Login',component:LoginComponent}
   // {path: 'Table',component:LoginComponent}
@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     AppComponent,
     TestComponentComponent,
     TestComponent2Component,
-    ListOfUsersComponent,
+    ListOfDishesComponent,
     RegistrationComponent,
     LoginComponent,
     DataTableComponent,
@@ -70,7 +70,7 @@ const appRoutes: Routes = [
     MatCheckboxModule,
   ],
   providers: [
-      ListOfUsersService,
+      ListOfDishesService,
       RegistrationService,
       LoginService,
       SessionService,

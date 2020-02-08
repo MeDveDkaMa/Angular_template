@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Users} from '../list-of-users/list-of-users.interface';
+import {Users} from '../list-of-dishes/list-of-users.interface';
 import {RegistrationService} from '../../services/Registration/registration.service';
 import {User} from './user';
 import {role} from './role';
