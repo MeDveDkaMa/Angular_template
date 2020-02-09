@@ -30,6 +30,7 @@ import { FormAddToOrderComponent } from './components/form-add-to-order/form-add
 import { FormAddToDishComponent } from './components/form-add-to-dish/form-add-to-dish.component';
 import {DishService} from './services/Dish/dish.service';
 import { DataTableOrderComponent } from './components/data-table-order/data-table-order.component';
+import { FinalTableComponent } from './components/final-table/final-table.component';
 
 
 const appRoutes: Routes = [
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     FormAddToOrderComponent,
     FormAddToDishComponent,
     DataTableOrderComponent,
+    FinalTableComponent,
   ],
   imports: [
     BrowserModule,
