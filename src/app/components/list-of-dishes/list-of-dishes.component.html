@@ -15,6 +15,7 @@
     <button (click)="openModal('custom-modal-2');" (click)="DeleteOrderById()" mat-fab color="primary">Order</button>
     <button (click)="CreateOrder();" mat-fab color="primary">Create</button>
     <button (click)="openModal('custom-modal-3');" mat-fab color="primary">Add</button>
+    <button (click)="openModal('custom-modal-4');" mat-fab color="primary">Delete</button>
     <button (click)="openModal('custom-modal-1');" (click)="DeleteOrderById()" mat-fab color="primary">OrderV2</button>
 </div>
 
@@ -51,6 +52,11 @@
     <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
     <!--        <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>-->
     <!--    </div>-->
+</jw-modal>
+
+<jw-modal id="custom-modal-4">
+    <h1>Delete dish from stock</h1>
+    <app-form-delete-dish></app-form-delete-dish>
 </jw-modal>
 
 <!--<div class="container">-->

@@ -28,8 +28,14 @@ export class DishService {
         );
   }
 
+  public deleteOrderById(id){
+      const params = {
+          id:id
+      };
+      return this.restService.doCall('/dish/Delete',params,"POST");
+  }
 
-    public addDishList(dish, count, id){
+  public addDishList(dish, count, id){
         const params =
             [
                 {

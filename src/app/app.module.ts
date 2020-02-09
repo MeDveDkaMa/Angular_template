@@ -31,6 +31,9 @@ import { FormAddToDishComponent } from './components/form-add-to-dish/form-add-t
 import {DishService} from './services/Dish/dish.service';
 import { DataTableOrderComponent } from './components/data-table-order/data-table-order.component';
 import { FinalTableComponent } from './components/final-table/final-table.component';
+import { FormDeleteDishComponent } from './components/form-delete-dish/form-delete-dish.component';
+import { DataTableUsersComponent } from './components/data-table-users/data-table-users.component';
+import {UserService} from './services/User/user.service';
 
 
 const appRoutes: Routes = [
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
   {path: 'ListOfDishes',component:ListOfDishesComponent},
   {path: 'Registration',component:RegistrationComponent},
   {path: 'Login',component:LoginComponent},
-  {path: 'Order',component:DataTableOrderComponent}
+  {path: 'Order',component:DataTableOrderComponent},
+  {path: 'ListOfUsers',component:DataTableUsersComponent}
 ];
 
 @NgModule({
@@ -56,6 +60,8 @@ const appRoutes: Routes = [
     FormAddToDishComponent,
     DataTableOrderComponent,
     FinalTableComponent,
+    FormDeleteDishComponent,
+    DataTableUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +86,8 @@ const appRoutes: Routes = [
       SessionService,
       RestService,
       OrdersService,
-      DishService],
+      DishService,
+      UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

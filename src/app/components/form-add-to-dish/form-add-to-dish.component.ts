@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit } from '@angular/core';
 import {DishToStock} from './DishToStock';
 import {DishService} from '../../services/Dish/dish.service';
 
@@ -23,7 +22,7 @@ export class FormAddToDishComponent implements OnInit {
     this.service.addDish(this.name,this.composition,this.price).subscribe((data)=>{
       alert("Successfully");
     }, error =>{
-      alert("Error auth");
+      alert("Error permission");
     });
 
   }
