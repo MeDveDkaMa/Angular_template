@@ -9,8 +9,8 @@ export class RestService {
 
   private jsonHeaders = new HttpHeaders({
     'Content-Type': 'application/json; charset=UTF-8',
-    // 'Authorization': 'Basic ' + btoa('medvedkama@gmail.com'+':'+"0F5BD2A43B49E92EFEF47B174FFC53F7")
      'Authorization': 'Basic ' + btoa(localStorage.getItem('email')+ ':' +localStorage.getItem('token'))
+    // 'Authorization': 'Basic ' + btoa('medvedkama@gmail.com'+':'+"0F5BD2A43B49E92EFEF47B174FFC53F7")
   });
 
   private jsonHeaderLogin = new HttpHeaders({

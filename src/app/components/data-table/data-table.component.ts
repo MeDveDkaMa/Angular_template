@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DataTableDataSource, Dishes } from './data-table-datasource';
-import {ListOfDishesService} from '../../services/ListOfDishes/list-of-dishes.service';
 import {DishService} from '../../services/Dish/dish.service';
 
 @Component({

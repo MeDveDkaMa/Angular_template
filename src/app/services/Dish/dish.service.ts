@@ -28,6 +28,16 @@ export class DishService {
         );
   }
 
+    public addDishList(dish,count){
+        return this.restService.doCall('/orders/addProductInOrder',dish,"POST")
+            .pipe(
+                map((res) => {
+                    return res;
+                })
+            );
+    }
+
+
     public getDish(){
         return this.restService.doCall('dish/GetDish',null,'GET');
     }

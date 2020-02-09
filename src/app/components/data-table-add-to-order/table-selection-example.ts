@@ -27,12 +27,15 @@ export class TableSelectionExample implements OnInit{
 
     dishtoAdd:any;
 
+    dishes:Dishes[];
+
 
 
 
     constructor(private dishService: DishService,
                 private modalService: ModalService,
-                private service:OrdersService) {
+                private service:OrdersService,
+                private serviceDish:DishService) {
     }
 
     ngOnInit(): void {
@@ -53,7 +56,7 @@ export class TableSelectionExample implements OnInit{
         const numSelected = this.selection2.selected.length;
         const numSelected2 = this.selection2.selected;
         this.dishtoAdd = this.selection2.selected;
-      //  console.log(this.dishtoAdd);
+        console.log(this.dishtoAdd);
         const numRows = this.dataSource2.data.length;
         return numSelected === numRows;
     }
@@ -81,7 +84,7 @@ export class TableSelectionExample implements OnInit{
         console.log("ADD DISH TO ORDER");
        // console.log(this.dishtoAdd);
         let count = 2;
-        // this.service.AddDishToOrder(this.cartT,this.dishtoAdd,count).subscribe((res: any)=>{});
+        this.serviceDish.addDishList(this.dishtoAdd,count).subscribe((res: any)=>{});
 
 
     }
