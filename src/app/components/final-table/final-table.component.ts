@@ -1,30 +1,54 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { FinalTableDataSource, FinalTableItem } from './final-table-datasource';
+import {Component, OnInit} from '@angular/core';
+import {DishInOrder} from '../form-add-to-order/DishInOrder';
+import {DishService} from '../../services/Dish/dish.service';
+import {OrdersService} from '../../services/Orders/orders.service';
 
 @Component({
   selector: 'app-final-table',
   templateUrl: './final-table.component.html',
   styleUrls: ['./final-table.component.scss']
 })
-export class FinalTableComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-  @ViewChild(MatTable, {static: false}) table: MatTable<FinalTableItem>;
-  dataSource: FinalTableDataSource;
+export class FinalTableComponent implements OnInit{
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  dishInOrder:DishInOrder[];
+  public id:string;
 
-  ngOnInit() {
-    this.dataSource = new FinalTableDataSource();
+  constructor(private service: DishService,
+              private OrderService:OrdersService) { }
+
+  displayedColumns: string[] = ['item', 'cost'];
+
+  ngOnInit(): void {
+    this.ShowOrder();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+
+  GetOrder(id:string){
+    this.OrderService.getOrder(id).subscribe((res: any)=>{
+      this.dishInOrder = res;
+      console.log(this.dishInOrder);
+    });
   }
+
+  ShowOrder() {
+    this.OrderService.getCartID(localStorage.getItem("id")).subscribe((res: any)=>{
+      this.id = res[0].id;
+      console.log(this.id);
+      this.AddDishToOrder(this.id);
+    });
+
+  }
+
+  AddDishToOrder(id:string){
+    this.GetOrder(this.id);
+  }
+
+  /** Gets the total cost of all transactions. */
+  getTotalCost() {
+    return this.dishInOrder.map(t => t.dish.price).reduce((acc, value) => acc + value, 0);
+  }
+
+
+
+
 }

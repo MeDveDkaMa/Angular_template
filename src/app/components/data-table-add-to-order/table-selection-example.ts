@@ -53,7 +53,7 @@ export class TableSelectionExample implements OnInit{
         const numSelected = this.selection2.selected.length;
         const numSelected2 = this.selection2.selected;
         this.dishToAdd = this.selection2.selected;
-        console.log(this.dishToAdd);
+        //console.log(this.dishToAdd);
         const numRows = this.dataSource2.data.length;
         return numSelected === numRows;
     }
