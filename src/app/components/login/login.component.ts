@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
                   alert(localStorage.getItem("token"));
                   alert("Successfully login");
                   this.userLogin = res;
-                  //this.router.navigate(['/ListOfDishes']);
+                  this.router.navigate(['/ListOfDishes']);
               }},
                   error =>{
              // this.router.navigate(['/Registration']);

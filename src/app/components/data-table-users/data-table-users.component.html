@@ -39,3 +39,32 @@
                  [pageSizeOptions]="[5, 10, 25, 40]">
   </mat-paginator>
 </div>
+<br>
+
+
+
+<button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>
+<button (click)="openModal('custom-modal-2');" mat-fab color="primary">Delete</button>
+
+
+<jw-modal id="custom-modal-1">
+  <h1>Add User</h1>
+  <!--    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>-->
+  <app-form-add-user></app-form-add-user>
+  <!--    <br>-->
+  <!--    <div class="example-button-row">-->
+  <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
+  <!--        <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>-->
+  <!--    </div>-->
+</jw-modal>
+
+<jw-modal id="custom-modal-2">
+  <h1>Delete User</h1>
+  <!--    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>-->
+  <app-form-delete-user></app-form-delete-user>
+  <!--    <br>-->
+  <!--    <div class="example-button-row">-->
+  <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
+  <!--        <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>-->
+  <!--    </div>-->
+</jw-modal>

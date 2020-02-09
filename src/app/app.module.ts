@@ -34,6 +34,8 @@ import { FinalTableComponent } from './components/final-table/final-table.compon
 import { FormDeleteDishComponent } from './components/form-delete-dish/form-delete-dish.component';
 import { DataTableUsersComponent } from './components/data-table-users/data-table-users.component';
 import {UserService} from './services/User/user.service';
+import { FormAddUserComponent } from './components/form-add-user/form-add-user.component';
+import { FormDeleteUserComponent } from './components/form-delete-user/form-delete-user.component';
 
 
 const appRoutes: Routes = [
@@ -62,6 +64,8 @@ const appRoutes: Routes = [
     FinalTableComponent,
     FormDeleteDishComponent,
     DataTableUsersComponent,
+    FormAddUserComponent,
+    FormDeleteUserComponent,
   ],
   imports: [
     BrowserModule,

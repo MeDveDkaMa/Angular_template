@@ -14,9 +14,9 @@ export class FormDeleteDishComponent implements OnInit {
   ngOnInit() {
   }
 
-
   DeleteOrderById() {
     this.service.deleteOrderById(this.id).subscribe((res: any) => {
+      alert("Successfully")
     },error => {
       alert("Error permission")
         }

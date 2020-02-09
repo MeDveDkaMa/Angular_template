@@ -7,6 +7,7 @@ import {User} from '../registration/user';
 import {role} from '../registration/role';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/User/user.service';
+import {ModalService} from '../../_modal';
 
 @Component({
   selector: 'app-data-table-users',
@@ -19,22 +20,13 @@ export class DataTableUsersComponent implements AfterViewInit, OnInit {
   @ViewChild(MatTable, {static: false}) table: MatTable<DataTableUsersItem>;
   dataSource: DataTableUsersDataSource;
 
-  user: User[];
+  user: User;
   role: role;
 
 
   constructor(private service:UserService,
-              private router:Router) { }
-
-  public GetUsers(){
-
-    this.service.getUsers()
-        .subscribe((data)=>{
-          this.dataSource=data;
-        }), error =>{
-      alert("Error registration");
-    }
-  }
+              private router:Router,
+              private modalService: ModalService) { }
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id','username','adress','email','role'];
@@ -45,10 +37,24 @@ export class DataTableUsersComponent implements AfterViewInit, OnInit {
     this.service.getUsers()
         .subscribe((data)=>{
           this.dataSource.data=data;
-        }), error =>{
-      alert("Error registration");
-    }
+        }, error =>{
+          this.router.navigate(['/ListOfDishes']);
+          alert("Error permission");
+
+    })
   }
+
+
+
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
