@@ -24,12 +24,7 @@ export class TableSelectionExample implements OnInit{
 
     public id:string;
 
-
     dishToAdd:any;
-
-    dishes:Dishes[];
-
-
 
 
     constructor(private dishService: DishService,
@@ -76,20 +71,20 @@ export class TableSelectionExample implements OnInit{
         return `${this.selection2.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
     }
 
-    AddDishToOrder() {
+    AddToOrder() {
         this.service.createOrder(localStorage.getItem("id")).subscribe((res: any)=>{});
         this.service.getCartID(localStorage.getItem("id")).subscribe((res: any)=>{
             this.id = res[0].id;
+            this.AddDishToOrder()
         });
+        }
+
+    AddDishToOrder(){
         for(let i=0; i<this.dishToAdd.length; i++){
             let count = 2;
             this.serviceDish.addDishListTEST(this.dishToAdd[i],count,this.id).subscribe((res: any)=>{});
-
-            //console.log(this.dishtoAdd[i]);
-
         }
     }
-
 
     closeModal(id: string) {
         this.modalService.close(id);

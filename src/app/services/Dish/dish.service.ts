@@ -50,7 +50,7 @@ export class DishService {
 
                     "cart":
                         {
-                            "id":1206
+                            "id":id
                         },
 
                     "count":count
