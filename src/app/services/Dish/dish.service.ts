@@ -29,7 +29,53 @@ export class DishService {
   }
 
     public addDishList(dish,count){
-        return this.restService.doCall('/orders/addProductInOrder',dish,"POST")
+        return this.restService.doCall('/orders/addProductInOrder',dish ,"POST")
+            .pipe(
+                map((res) => {
+                    return res;
+                })
+            );
+    }
+
+
+    public addDishListTEST(dish,count,id){
+        const params =
+            [
+                {
+
+                    "dish":
+                        {
+                            "id":dish.id
+                        },
+
+                    "cart":
+                        {
+                            "id":1206
+                        },
+
+                    "count":count
+
+                }
+            ];
+        // [
+        //     {
+        //
+        //         "dish":
+        //             {
+        //                 "id":dish[0].id
+        //             },
+        //
+        //         "cart":
+        //             {
+        //                 "id":1148
+        //             },
+        //
+        //         "count":count
+        //
+        //     }
+        // ];
+
+        return this.restService.doCall('/orders/Test',params ,"POST")
             .pipe(
                 map((res) => {
                     return res;

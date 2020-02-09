@@ -25,7 +25,7 @@ export class TableSelectionExample implements OnInit{
     public id:string;
 
 
-    dishtoAdd:any;
+    dishToAdd:any;
 
     dishes:Dishes[];
 
@@ -55,8 +55,8 @@ export class TableSelectionExample implements OnInit{
 
         const numSelected = this.selection2.selected.length;
         const numSelected2 = this.selection2.selected;
-        this.dishtoAdd = this.selection2.selected;
-        console.log(this.dishtoAdd);
+        this.dishToAdd = this.selection2.selected;
+        console.log(this.dishToAdd);
         const numRows = this.dataSource2.data.length;
         return numSelected === numRows;
     }
@@ -76,17 +76,18 @@ export class TableSelectionExample implements OnInit{
         return `${this.selection2.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
     }
 
-    AddToOrder() {
-        let id:string;
-        console.log("ADD ORDER");
-        id = localStorage.getItem("id");
-        this.service.createOrder(id).subscribe((res: any)=>{});
-        console.log("ADD DISH TO ORDER");
-       // console.log(this.dishtoAdd);
-        let count = 2;
-        this.serviceDish.addDishList(this.dishtoAdd,count).subscribe((res: any)=>{});
+    AddDishToOrder() {
+        this.service.createOrder(localStorage.getItem("id")).subscribe((res: any)=>{});
+        this.service.getCartID(localStorage.getItem("id")).subscribe((res: any)=>{
+            this.id = res[0].id;
+        });
+        for(let i=0; i<this.dishToAdd.length; i++){
+            let count = 2;
+            this.serviceDish.addDishListTEST(this.dishToAdd[i],count,this.id).subscribe((res: any)=>{});
 
+            //console.log(this.dishtoAdd[i]);
 
+        }
     }
 
 
