@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../registration/user';
-import {role} from '../registration/role';
 import {ModalService} from '../../_modal';
 import {OrdersService} from '../../services/Orders/orders.service';
-import {Cart} from './Cart';
 import {Dish} from './Dish';
-import {CartProduct} from './CartProduct';
 import {DishInOrder} from './DishInOrder';
 
 @Component({
@@ -15,13 +11,11 @@ import {DishInOrder} from './DishInOrder';
 })
 export class FormAddToOrderComponent implements OnInit {
 
-  cart: Cart;
   public id:string;
 
 
   dishToAdd: Dish = new Dish(null);
   dishInOrder:DishInOrder[];
- // cartProduct: CartProduct = new CartProduct("");
 
   constructor(private modalService: ModalService,
               private service:OrdersService) { }

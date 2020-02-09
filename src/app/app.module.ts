@@ -29,6 +29,7 @@ import {OrdersService} from './services/Orders/orders.service';
 import { FormAddToOrderComponent } from './components/form-add-to-order/form-add-to-order.component';
 import { FormAddToDishComponent } from './components/form-add-to-dish/form-add-to-dish.component';
 import {DishService} from './services/Dish/dish.service';
+import { DataTableOrderComponent } from './components/data-table-order/data-table-order.component';
 
 
 const appRoutes: Routes = [
@@ -36,8 +37,8 @@ const appRoutes: Routes = [
   {path: 'test',component:TestComponent2Component},
   {path: 'ListOfDishes',component:ListOfDishesComponent},
   {path: 'Registration',component:RegistrationComponent},
-  {path: 'Login',component:LoginComponent}
-  // {path: 'Table',component:LoginComponent}
+  {path: 'Login',component:LoginComponent},
+  {path: 'Order',component:DataTableOrderComponent}
 ];
 
 @NgModule({
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     TableSelectionExample,
     FormAddToOrderComponent,
     FormAddToDishComponent,
+    DataTableOrderComponent,
   ],
   imports: [
     BrowserModule,

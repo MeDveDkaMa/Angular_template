@@ -7,6 +7,7 @@ import {ModalService} from '../../_modal';
 import {Cart} from './Cart';
 import {OrdersService} from '../../services/Orders/orders.service';
 import {DishService} from '../../services/Dish/dish.service';
+import {Router} from '@angular/router';
 
 /**
  * @title Table with selection
@@ -30,7 +31,8 @@ export class TableSelectionExample implements OnInit{
     constructor(private dishService: DishService,
                 private modalService: ModalService,
                 private service:OrdersService,
-                private serviceDish:DishService) {
+                private serviceDish:DishService,
+                private router:Router) {
     }
 
     ngOnInit(): void {
@@ -82,12 +84,16 @@ export class TableSelectionExample implements OnInit{
     AddDishToOrder(){
         for(let i=0; i<this.dishToAdd.length; i++){
             let count = 2;
-            this.serviceDish.addDishListTEST(this.dishToAdd[i],count,this.id).subscribe((res: any)=>{});
+            this.serviceDish.addDishList(this.dishToAdd[i],count,this.id).subscribe((res: any)=>{});
         }
     }
 
     closeModal(id: string) {
         this.modalService.close(id);
+    }
+
+    toContinue() {
+        this.router.navigate(['/Order']);
     }
 
 }

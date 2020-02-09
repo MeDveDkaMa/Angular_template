@@ -28,17 +28,8 @@ export class DishService {
         );
   }
 
-    public addDishList(dish,count){
-        return this.restService.doCall('/orders/addProductInOrder',dish ,"POST")
-            .pipe(
-                map((res) => {
-                    return res;
-                })
-            );
-    }
 
-
-    public addDishListTEST(dish,count,id){
+    public addDishList(dish, count, id){
         const params =
             [
                 {
@@ -57,25 +48,8 @@ export class DishService {
 
                 }
             ];
-        // [
-        //     {
-        //
-        //         "dish":
-        //             {
-        //                 "id":dish[0].id
-        //             },
-        //
-        //         "cart":
-        //             {
-        //                 "id":1148
-        //             },
-        //
-        //         "count":count
-        //
-        //     }
-        // ];
 
-        return this.restService.doCall('/orders/Test',params ,"POST")
+        return this.restService.doCall('/orders/addProductList',params ,"POST")
             .pipe(
                 map((res) => {
                     return res;
