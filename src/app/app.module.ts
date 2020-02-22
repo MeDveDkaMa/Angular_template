@@ -36,6 +36,8 @@ import { DataTableUsersComponent } from './components/data-table-users/data-tabl
 import {UserService} from './services/User/user.service';
 import { FormAddUserComponent } from './components/form-add-user/form-add-user.component';
 import { FormDeleteUserComponent } from './components/form-delete-user/form-delete-user.component';
+import { DataTableAllOrderComponent } from './components/data-table-all-order/data-table-all-order.component';
+import { DataTableOrderByComponent } from './components/data-table-order-by/data-table-order-by.component';
 
 
 const appRoutes: Routes = [
@@ -66,6 +68,8 @@ const appRoutes: Routes = [
     DataTableUsersComponent,
     FormAddUserComponent,
     FormDeleteUserComponent,
+    DataTableAllOrderComponent,
+    DataTableOrderByComponent,
   ],
   imports: [
     BrowserModule,

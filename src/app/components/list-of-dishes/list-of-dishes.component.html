@@ -16,7 +16,9 @@
     <button (click)="CreateOrder();" mat-fab color="primary">Create</button>
     <button (click)="openModal('custom-modal-3');" mat-fab color="primary">Add</button>
     <button (click)="openModal('custom-modal-4');" mat-fab color="primary">Delete</button>
-    <button (click)="openModal('custom-modal-1');" (click)="DeleteOrderById()" mat-fab color="primary">OrderV2</button>
+<!--    <button (click)="openModal('custom-modal-1');" (click)="DeleteOrderById()" mat-fab color="primary">OrderV2</button>-->
+    <button (click)="openModal('custom-modal-1');"  mat-fab color="primary">OrderV2</button>
+    <button (click)="openModal('custom-modal-5');" (click)="GetOrders()" mat-fab color="primary">All orders</button>
 </div>
 
 <jw-modal id="custom-modal-1">
@@ -58,6 +60,19 @@
     <h1>Delete dish from stock</h1>
     <app-form-delete-dish></app-form-delete-dish>
 </jw-modal>
+
+
+<jw-modal id="custom-modal-5">
+    <h1>All orders: </h1>
+    <!--    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>-->
+    <app-data-table-all-order></app-data-table-all-order>
+    <!--    <br>-->
+    <!--    <div class="example-button-row">-->
+    <!--        <button (click)="openModal('custom-modal-1');" mat-fab color="primary">Add</button>-->
+    <!--        <button (click)="closeModal('custom-modal-1');" mat-fab color="primary" >Close</button>-->
+    <!--    </div>-->
+</jw-modal>
+
 
 <!--<div class="container">-->
 <!--    <h2>Dish list</h2>-->

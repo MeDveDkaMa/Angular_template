@@ -56,4 +56,7 @@ export class ListOfDishesComponent implements OnInit {
   }
 
 
+    GetOrders() {
+
+    }
 }

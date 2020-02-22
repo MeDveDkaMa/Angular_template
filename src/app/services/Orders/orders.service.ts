@@ -60,11 +60,15 @@ export class OrdersService {
         return this.restService.doCall('/orders/GetOrder',params,"POST");
     }
 
+    public getOrders(): Observable<any[]> {
+        return this.restService.doCall('/orders/GetOrders',null,"GET");
+    }
+
 
   // getCartID2(): Observable<any[]> {
   //   return this.http
   //       .get('/orders/GetCartID')
-  //       .pipe(map(result=>result.Cart))
+  //       .pipe(map(result=>result.CartForOrders))
   // }
 
   public AddDishToOrder(Cart,DishToAdd,cout: string,){
